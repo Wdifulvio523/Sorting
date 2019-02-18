@@ -75,10 +75,30 @@ def bubble_sort( arr ):
         length = length - 1
     return arr
 
-arr = bubble_sort(my_arr)
-print(my_arr)
+# arr = bubble_sort(my_arr)
+# print(my_arr)
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
-
+    # if length of the array is 0, return array 
+    if len(arr) == 0:
+        return arr   
+    
+    m = max(arr) + 1
+    count = [0] * m
+    
+    for a in arr:
+        # if a is negative, throw an error
+        if a < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+            
+        count[a] += 1
+    i = 0
+    for a in range(m):
+        for c in range(count[a]):
+            arr[i] = a
+            i += 1
     return arr
+
+count_sort(my_arr)
+print(my_arr)
